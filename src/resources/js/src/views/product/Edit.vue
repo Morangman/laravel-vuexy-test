@@ -37,6 +37,13 @@ export default {
 			.get(`/api/v1/products/${this.$route.params.id}/record`)
 			.then((response) => {
 				this.item = response.data.item;
+			}).catch((response) => {
+				this.$router.back();
+				
+				this.$vs.notify({
+					title: 'Error!',
+					color: 'danger'
+				});
 			});
 	},
 

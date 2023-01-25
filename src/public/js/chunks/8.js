@@ -46,6 +46,12 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
     axios.get("/api/v1/products/".concat(this.$route.params.id, "/record")).then(function (response) {
       _this.item = response.data.item;
+    }).catch(function (response) {
+      _this.$router.back();
+      _this.$vs.notify({
+        title: 'Error!',
+        color: 'danger'
+      });
     });
   },
   methods: {
